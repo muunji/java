@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script>
+        $(function(){
+            // $("ul").append('<li class="page">page</li>');
+            // 선택한 요소의 자식요소 뒤에
+            // $("ul").prepend('<li class="page">page</li>');
+            // 선택한 요소의 자식요소 앞에
+            // $('<li class="page>page</li>').appendTo("ul");
+            // $('<li class="page>page</li>').prependTo("ul");
+            // $("ul").clone().prependTo("body");
+            // 똑같은 요소를 앞에 추가
+            // $("ul").clone().appendTo("body");
+            // 똑같은 요소를 뒤에 추가
+            // $("ul:first").wrap("<div id='wrap></div>");
+            // $("ul:first li").wrap("<div id='wrap></div>");
+            // $("ul:first li").wrapInner('<div id="wrap></div>');
+            // $("ul li").wrapInner('<div id="wrap></div>');
+            // $("ul").wrap('<div id="wrap></div>');
+            // $("ul").wrapAll('<div id="wrap></div>');
+            //
+            // $(".html").after('<li class="page">page</li>');
+            // $(".html").before('<li class="page">page</li>');
+            // $('<li class="page">page</li>').insertAfter(".html");
+            // $('<li class="page">page</li>').insertBefore(".html");
+            // $('<li class="page">page</li>').replaceAll(".html");
+            // html이 page로 변경 (html이 없어짐)
+            // $(".page").replaceWith("<li class='html'>html</li>");
+            // page가 html로 변경
+            //
+            let txt = $("ul li:first").text();
+            console.log("txt : " + txt);
+            //let txt1 = txt.slice(0); 0번부터 가져와서 1번직전까지
+            let txt1 = txt.substr(0,2);
+            // let txt1 = txt.substring(0,2); 슬라이스는 음수가 가능하지만 string은 음수가 되지 않는다
+            //txt1 = txt.slice(-1);맨끝
+            //txt1 = txt.slice(-2,-1);  뒤에서 2번 올라가서 1개 가져옴 >>jquery
+            console.log("txt1 : "+txt1);
+            // $("ul").prepend(txt1);
+            let txt2 = txt1.replace("html","페이지");
+            console.log("txt2 : "+txt2);
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li class="html">html</li>
+        <li class="css">css</li>
+        <li class="css3">css3</li>
+        <li class="css-3">css3</li>
+        <li class="java script">javascript</li>
+        <li class="javascript">javascript</li>
+        <li class="jquery">jquery</li>
+        <li></li>
+    </ul>
+</body>
+</html>

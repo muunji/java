@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+            transition: 1s;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script>
+        $(function(){
+            //slideleft, slideright는 없기 때문에 따로 만들어야한다
+            $("#slideleft").click(function(){
+                $("p").css("width","0");
+                //시간 (transition)은 style에 적어주면 된다
+            });
+            $("#slideright").click(function(){
+                $("p").css("width","100px");
+            });
+            let status = true; //문자가 아니라 true 값
+            $("#slidetoggle").click(function(){
+                if(status){
+                    $("p").css("width","0").css("background","#ccc");
+                } else {
+                    $("p").css("width","100px").css("background","green");
+                }
+                status = !status; //!부정 >> !ture >> false >> 한번 더 누르면 !false >> true 누를때마다 반복된다
+            })
+        });
+    </script>
+</head>
+<body>
+    <p></p>
+    <button id="slideleft">slideleft</button>
+    <button id="slideright">slideright</button>
+    <button id="slidetoggle">slidetoggle</button>
+</body>
+</body>
+</html>

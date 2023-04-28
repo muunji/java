@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            color: blue;
+        }
+        .on{
+            /* display: none; */
+            opacity: 0;
+            /* opacity는 있는데 안보여주는것, display none은 없는것 */
+        }
+    </style>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script>
+        $(function(){
+            /*$("button").click(function(){
+                $("p").toggleClass("on"); //toggle 하나의 키에 두개를 쓰는것
+            });*/
+            $("button").dblclick(function(){
+                //dblclick 더블클릭
+                $("p").toggleClass("on"); //toggle 하나의 키에 두개를 쓰는것
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>문단태그입니다</p>
+    <button>서식변경</button>
+</body>
+</html>

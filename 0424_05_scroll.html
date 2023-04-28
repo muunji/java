@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 3000px;
+        }
+        #nav {
+            position: fixed;
+            /* fixed 와 absolute 는 붕 떠있다고 생각하면 좋다 >> top 0을 주면 #content를 가린다
+            absolute는 기준이 있어야해서 fixed로 준것 */
+            top: -60px;
+            width: 100%;
+            height: 50px;
+            background: #333;
+            transition: 0.5s;
+        }
+        #content {
+            position: fixed;
+            transition: 0.5s;
+        }
+        #btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #f00;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            opacity: 0;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav"></div>
+    <div id="content">본문내용입니다</div>
+    <button id="btn">Top</button>
+    <script>
+        let navht = document.getElementById("nav").offsetHeight;
+        document.getElementById("nav").style.top = -navht + "px";
+        window.onscroll = function(){
+            let ht = document.documentElement.scrollTop;
+            if (ht>50) {
+                document.getElementById("nav").style.top = "0";
+                document.getElementById("content").style.top = navht + "px";
+                document.getElementById("btn").style.opacity = "1";
+            } else {
+                document.getElementById("nav").style.top = -navht + "px";
+                document.getElementById("content").style.top = "0";
+                document.getElementById("btn").style.opacity = "0";
+            }
+        }
+        document.getElementById("btn").onclick = function(){
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let name = prompt("이름을 입력해주세요");
+        let jumsu = prompt("점수를 입력해주세요");
+        let score = "";
+        // console.log(typeof jumsu);
+        // if (jumsu >= 90) {
+        //     //>=는 문자,숫자 상관없이 입력됨
+        //     document.write("A학점");
+        // } else if (jumsu >= 80) {
+        //     document.write("B학점");
+        // } else if (jumsu >= 70) {
+        //     document.write("C학점");
+        // } else {
+        //     document.write("F학점");
+        // }
+        if (jumsu >= 90) {
+            score = "A학점";
+        } else if (jumsu >= 80) {
+            score = "B학점";
+        } else if (jumsu >= 70) {
+            score = "C학점";
+        } else if (jumsu >= 60) {
+            score = "D학점";
+        } else {
+            score = "F학점";
+        }
+        document.write (name + "님이 입력한 점수는 " + jumsu + "점이고 학점은 " + score + "입니다 <br>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

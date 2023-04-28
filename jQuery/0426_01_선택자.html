@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            color: blue;
+        }
+    </style>
+    <!-- jQuery는 head안에 / jQuery.com >> download >> compress: 압축 >> 링크 선택후 ctrl c >> script src에 ctrl v  -->
+    <!-- 복사하지 않고 우클릭 후 다운로드 받기 >> 링크주소 말고 파일 삽입해줘도 된다 -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <!-- javascript는 링크가 필요없지만 jquery는 반드시 필요, 없으면 $자체도 읽지 못한다-->
+    <script>
+        // $("p").text("변경된문단태그입니다.");
+        // 이 상태에서는 body의 p를 읽지 못한다
+        //
+        // $(document).ready(function(){
+            // document는 ""를 써주지 않아도 된다
+            // 읽을 준비가 되었다는 함수가 필요하다
+            // $("p").text("변경된문단태그입니다.");
+        // });
+        //
+        $(function(){
+            // document생략가능
+            // $("p").text("변경된문단태그입니다.");
+            // p를 선택하면 모두 다 선택된다
+            // $("p#p01").text("변경된문단태그입니다"); id선택
+            // $("p.p02").text("변경된문단태그입니다"); class선택
+            // 
+            // $("p").css("color","red").css("border","1px solid #000");
+            // css는 서식변경할때 쓰는 method, ("속성","속성값") 연속으로 쓸땐 계속 .css를 붙여주면 된다
+            // style과 중첩해서 쓰게되면 jquery에 적어준게 우선된다
+            //
+            // $("p").css({
+                // 중괄호를 써서 한번에 적어줄수도 있다
+                // style과 다르게 속성값에 따옴표가 필요하다
+                //-로 구성된 2단어 이상의 속성값은 무조건 따옴표를 넣어줘야한다 or 두번째단어의 첫문자를 대문자로 적어줘야한다
+                // color:"red",
+                // border:"1px solid #000",
+                // fontSize : "20px"
+            // });
+            //
+            // $("p:first").css("color","green");
+            // $("p:last").css({color:"cyan"});
+            // $("p:last-child").css({color:"orange"});
+            // $("p:nth-childe(2)").css({color:"violet"});
+            //
+            //p태그 위에 속성이 하나 생기면 p중에서 2번째가 아니라 전체 2번째가 선택된다
+            // $("p:first-child") 이것도 첫번째는 h1태그인데 p의 첫번째라고 해서 인식되지 않는다
+            // $("p:first-of-type").css({color:"gray"});
+            // 그럴땐 000-of-type를 적어주어야한다
+            //
+            // $("p:eq(0)").css({color:"red"});
+            // eq도 순번을 찾는거지만 0부터 시작한다
+            //
+            // $("p:gt(1)").css({color:"red"});
+            //1보다 큰 친구들
+            // $("p:lt(1)").css({color:"black"});
+            //1보다 작은 친구들
+            //
+            // $("p:eq(1)").css({color:"red"});
+            // $("p:not(:eq(1))").css({color:"black"});
+            // 위아래가 반대되는 선택지, eq1만 빼고 선택은 not(:선택지)
+            //
+            // $("span:only-child").css({color:"orange"});
+            // p의 "자식", 무조건 본인 혼자만 자식으로 존재할때
+            // $("span:only-of-type").css({color:"orange"});
+            // p의 "자식", 다른 자식들이 있지만 본인태그는 하나만 있을때
+            // $("p#p03 + span").css({color:"green"});
+            // + 바로 인접되어 있는 형제
+            //$("p#p03" ~ "span").css({color:"green"});
+            // ~ 아래 있는 형제들
+            // $("p,span,a").css({color:"#0ff"});
+            // 여러개 복합적으로 선택
+            // $("p:even").css({color:"#0ff"});
+            // 짝수선택
+            // $("p:odd").css({color:"#off"});
+            // 홀수 선택, 순서 숫자는 0부터 시작한다
+            //
+            // $(":header").css({color:"0f0"}); 
+            //h태그만 선택
+            //
+            // $(":contains('제목')").css({color:"#0f0"});
+            // 따옴표를 두번 반복되면 안됨, '' 사용
+            //'제목'이 포함된걸 서식한다 >> h1도 선택됨, body도 선택됨
+            // $("h1:contains('제목')").css({color:"#0f0"});
+            //앞에 태그를 붙여주면 그 태그들 중 포함된걸 선택한다
+            //
+            // $("p:has(span)").css({color:"#0f0"});
+            //p태그 중에 span을 가지고 있는 애들 선택
+        });
+    </script>
+</head>
+<body>
+    <h1>제목태그입니다</h1>
+    <p>문단태그입니다</p>
+    <p id="p01">문단태그입니다</p>
+    <p class="p02">문단태그입니다</p>
+    <p>문단태그입니다</p>
+    <p>문단태그입니다</p>
+    <p>
+        <span>span태그입니다</span>
+    </p>
+    <p>
+        <span>span태그입니다</span>
+        <a href="#">링크태그입니다</a>
+    </p>
+    <p id="p03">
+        <span>span태그입니다</span>
+        <span>span태그입니다</span>
+        <span>span태그입니다</span>
+        <a href="#">링크태그입니다</a>
+    </p>
+    <span>span태그입니다</span>
+    <span>span태그입니다</span>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let date = new Date();
+        let week = date.getDay();
+        console.log(typeof week);
+        switch(week) {
+            //switch문은 비교는 안된다
+            case 0 :
+                document.write("일요일");
+                break;
+            case 1 :
+                document.write("월요일");
+                break;
+            case 2 :
+                document.write("화요일");
+                break;
+            case 3 :
+                document.write("수요일");
+                break;
+            case 4 :
+                document.write("목요일");
+                break;
+            case 5 :
+                document.write("금요일");
+                break;
+            default :
+                document.write("토요일");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

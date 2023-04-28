@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script>
+        //fadeTo (speed,opacity,easing,callback)
+        $(function(){
+            $("body").append('<div id="page"></div>');
+            function my(){
+                //$("#page").text("p's display: "+ $("p").css("display")+"<br> p's opacity: "+$("p").css("opacity"));// <br>이 그대로 text로 나온다
+                $("#page").html("p's display: "+ $("p").css("display")+"<br> p's opacity: "+$("p").css("opacity")); // html로 입력해줘야 br이 설정된다
+            }
+            $("button").click(function(){
+                let i = $(this).index(); // button 중 누른것(this)의 index
+                console.log(i); // p가 0번이기 때문에 button의 index는 1-4이다
+                let ii = $(this).text(); // 안의 text를 가져온다
+                $("p").fadeTo(1000,ii,"linear",my);
+            });
+        });
+    </script>
+</head>
+<body>
+    <p></p>
+    <button id="btn1">0</button>
+    <button id="btn2">0.2</button>
+    <button id="btn3">0.5</button>
+    <button id="btn4">1</button>
+</body>
+</html>

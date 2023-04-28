@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script>
+        //show(), hide(), toggle() 매개변수 다 똑같음
+        //show(speed, easing, callback)
+        //speed >> "fast" "slow", miliseconds
+        //easing >> "swing"중간에 빨라지고 속도는 일정 , "linear"속도일정, default는 swing
+        //callback >> 함수 완료후 실행되는 함수(function이 들어감)
+        //
+        //매개변수 넣지않아도 설정 만으로도 실행됨
+        $(function(){
+            $("body").prepend('<div id="div1"></div>'); // p태그 앞에 생긴다
+            $("#Bhide").click(function(){
+                $("p").hide(1000, "swing", function(){
+                    //매개변수 필요 : 속도 콜백 등등..
+                    // 1000 = 1s
+                    $("body").append('<p id="page"></p>'); // append : 추가
+                    $("#page").text("display : " + $("p").css("display"));//위에 #page를 추가해줘서 입력가능
+                                                                          //display의 속성값을 불러온것
+                }); 
+                                   
+            });
+            $("#Bshow").click(function(){
+                $("p").show("slow", function(){
+                    $("#div1").text("display : " + $("p").css("display"));
+                });
+            });
+            $("#Btoggle").click(function(){
+                $("p").toggle(); //매개변수 필요 : 속도 콜백 등등..
+            });
+        });
+    </script>
+</head>
+<body>
+    <p></p>
+    <button id="Bshow">show</button>
+    <button id="Bhide">hide</button>
+    <button id="Btoggle">toggle</button>
+</body>
+</html>

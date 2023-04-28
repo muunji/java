@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+   
+</head>
+<body>
+     <script>
+        // let bg = ["photo1","photo2","photo3","photo4","photo5","photo6"];
+        // let num = bg.length;
+        // let rad = Math.floor(Math.random()*num);
+        // document.querySelector("body").style.backgroundImage = "url(images/"+bg[rad]+".jpg)";
+        let i = Math.ceil(Math.random()*6);
+        //0이 안나오게 하기위해 floor 보단 ceil
+        document.querySelector("body").style.backgroundImage = "url(images/photo"+i+".jpg)";
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+            /* 사이즈를 지정해도 하위 요소만큼 높이 크기를 가진다 */
+            overflow: auto; /*hidden : 넘치는걸 숨긴다  auto : 스크롤바가 생김*/
+        }
+        #content {
+            width: 2000px;
+            height: 2000px;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <!-- 스크롤 할때 함수를 불러온다 -->
+        <div id="content">scroll me</div>
+    </div>
+    <p id="demo"></p>
+    <button>스크롤 원위치</button>
+    <script>
+        let scr = document.getElementById("div1");
+        let btn = document.getElementsByTagName("button")[0];
+        // scr.onscroll=function() {
+        //     //해당 개체에 onscroll을 지정해줘야했지만 아예 따로 연결을 해줄때에는 함수이름이 필요없다
+        //     let x = scr.scrollLeft; //left : 하단 스크롤
+        //     let y = scr.scrollTop; //top : 상하 스크롤
+        //     document.getElementById("demo").innerHTML = "가로 :" + x +"<br>" +"세로 :" + y ;
+        //     //단지 텍스만 넣어줄 때는 inner text
+        // }
+        scr.addEventListener("scroll",function(){
+            let x = scr.scrollLeft;
+            let y = scr.scrollTop;
+            document.getElementById("demo").innerHTML = "가로 :" + x +"<br>" +"세로 :" + y ;
+        });
+        // btn.onclick=function () {
+        //     scr.scrollTop = 0;
+        //     scr.scrollLeft = 0;
+        // }
+        btn.addEventListener("click",function(){
+            scr.scrollTop = 0;
+            scr.scrollLeft = 0;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.write(Math.random()*4+"<br>");//정수만 보면 1-3까지 나온다
+        document.write(Math.floor(Math.random()*4)+"<br>");//정수로 표현하기 위해서
+        document.write(Math.trunc(Math.random()*4)+"<br>");//정수로 표현하기 위해서
+        let food =["짜장면","짬뽕","탕수육","잡채밥"];
+        let num = food.length; //num에 4가 들어간다
+        let rad = Math.floor(Math.random()*num);
+        document.write(food[rad]+"<br>");
+        let bg_color=["#f00","#0f0","#00f","#ff0","#f0f","#0ff"];
+        let radNum = Math.floor(Math.random()*bg_color.length);
+        document.querySelector("body").style.backgroundColor = bg_color[radNum];
+        //두글자로 이루어진 속성은 대문자 이용해서 한단어로 만들었음
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

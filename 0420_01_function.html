@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let x = 10;
+        document.write(x+"<br>");
+        console.log(x);
+        //내장함수
+        function myfnc() {
+            let x = 20;
+            //변수 x에 대한 재설정 & 할당 >> function안에서만 사용할 예정이라 재설정가능
+            document.write("지역변수 :"+x+"<br>");
+        }
+        myfnc();
+        //선언해주지 않으면 함수 실행되지 않는다
+        document.write("전역변수 :"+x+"<br>");
+        (function myfnc() {
+            let y = 30;
+            //변수 x에 대한 재설정 & 할당 >> function안에서만 사용할 예정이라 재설정가능
+            document.write("지역변수 :"+y+"<br>");
+        })();
+        //선언해주지 않고도 ()묶은 후 ()메소드 실행해주면 자체적으로 실행된다
+        function a() {
+            for(let i=1; i<=5; i++){
+                document.write(i+"<br>");
+            }
+        }
+        a();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

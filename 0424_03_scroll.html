@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        window.onscroll = function() {
+            let ht = document.documentElement.scrollTop;
+            console.log("scrollTop:"+ht);
+            if(ht>=0 && ht<1000) {
+                document.querySelector("body").style.backgroundColor = "#ccc";
+            }else if(ht>=1000 && ht<2000) {
+                document.querySelector("body").style.backgroundColor = "#f00";
+            }else {
+                document.querySelector("body").style.background = "#0f0";
+            }
+        };
+        //scroll을 하지않으면 아무일도 일어나지 않는다.
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         p {
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script>
+        $(function(){
+            $("p").hide();
+            /*$("#btn").mouseenter(function(){
+                $("p").slideDown();
+            });
+            $("#btn").mouseleave(function(){
+                $("p").slideUp();
+            });*/
+            //
+            //간략하게 적어주는 것이 좋다 >> mouseenter leave 보다 hover로 적는편
+            $("#btn").hover(function(){
+                //마우스 hover했을때 실행구문; >> 마우스는 hover했을때 안했을때 두가지로 나뉜다
+                $("p").slideDown();
+            }, function(){
+                //, 이후에 적어준 function은 hover안했을때 실행구문;
+                $("p").slideUp();
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btn">slideup</button>
+    <p></p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script>
+        $(function(){
+            // $("p").attr("class","study");
+            // attr : 변경도 되고 추가도 된다
+            // $("p").attr("class","study").attr("id","page");
+            //$("p").attr({class:"study",id:"page"}); //위에랑 같은 내용
+            //$("p").removeAttr("class"); //속성 지우기
+            //$("p").remove(); //선택한 요소를 지우기
+            // $(".week").empty();//비어있게 만듦
+            // $("button").click(function(){
+                //버튼을 클릭했을때
+                // $("input").val("변경후"); //value 입력값, value="변경전"자체가 변하는것xxxx
+            // });
+            //
+            $("button#change").click(function(){
+                let x = $("input").val();
+                console.log("x:"+x);
+                if(x == "변경전") {
+                    $("input").val("변경후");
+                } else {
+                    $("input").val("변경전");
+                }
+            });
+            // $("button#photo").click(function(){
+            //     $("img").attr("src","../images/photo2.jpg").css("width","300px");
+            // });
+            //
+            // let num = $("img").attr("src");
+            // $("button#photo").click(function(){
+            //     $("img").attr("src", num.replace(num.slice(-5,-4),2)).css("width","300px");
+            // });
+            //
+            let num = $("img").attr("src");
+            let nam = $("img").attr("alt");
+            let i = 1;
+            $("button#photo").click(function(){
+                $("img").attr("src",num.replace(num.slice(-5,-4),i)).attr("alt",nam.replace(nam.slice(-1),i)).css("width","300px");
+                i++;
+                if(i == 7) {
+                   i=1;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>오늘은 수요일</p>
+    <button id="photo">이미지 변경</button>
+    <img src="../images/photo1.jpg" alt="photo1">
+    <p class="week">내일은 목요일</p>
+    <input type="text" value="변경전">
+    <button id="change">클릭</button>
+</body>
+</html>

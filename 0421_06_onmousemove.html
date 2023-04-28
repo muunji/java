@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin-top: 1000px;
+            padding-bottom: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="form1">
+        <p><input type="text" name="clientx"></p>
+        <p><input type="text" name="clienty"></p>
+        <p><input type="text" name="pagex"></p>
+        <p><input type="text" name="pagey"></p>
+        <p><input type="text" name="screenx"></p>
+        <p><input type="text" name="screeny"></p>
+    </form>
+    <script>
+        // document.onmousemove = function (event) {
+            document.addEventListener("mousemove",function(){
+            //위 아래 같은 방법이다
+            //onmousemove 는 매개변수(주로 event, e로 많이 쓴다)가 필요하다
+            let myform = document.getElementById("form1");
+            myform.clientx.value = "clientX : " + event.clientX;
+            myform.clienty.value = "clientY : " + event.clientY;
+            //마우스 움직일때마다 좌표값 제공, 현재 문서를 기준으로 계산, 스크롤 계산 안함
+            myform.pagex.value = "pageX : " + event.pageX;
+            myform.pagey.value = "pageY : " + event.pageY;
+            //실행되어 있는 문서가 기준, 좌표값 제공, 스크롤계산함
+            myform.screenx.value = "screenX : " + event.screenX;
+            myform.screeny.value = "screenY : " + event.screenY;
+            //모니터 상의 위치를 이야기해준다
+        })
+    </script>
+</body>
+</html>

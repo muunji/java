@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script>
+        $(function(){
+            $("body").append('<div id="page"></div>'); 
+            $("#Bhide").click(function(){
+                $("p").hide(1000, function(){
+                    $("#page").text("display : " + $("p").css("display"));
+                });            
+            });
+            $("#Bshow").click(function(){
+                $("p").show(1000, function(){
+                    $("#page").text("display : " + $("p").css("display"));
+                });
+            });
+            $("#Btoggle").click(function(){
+                $("p").toggle();
+            });
+        });
+    </script>
+</head>
+<body>
+    <p></p>
+    <button id="Bshow">show</button>
+    <button id="Bhide">hide</button>
+    <button id="Btoggle">toggle</button>
+</body>
+</html>

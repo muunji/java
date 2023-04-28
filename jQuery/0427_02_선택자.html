@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #wrap {
+            width: 500px;
+            margin: 0 auto;
+        }
+        #nav ul li {
+            float: left;
+            width: 25%;
+            text-align: center;
+        }
+        #nav ul li a {
+            display: block;
+            line-height: 30px;
+        }
+        #nav ul li a:hover {
+            background: #ddd;
+        }
+        #photo img {
+            width: 500px;
+        }
+    </style>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script>
+        $(function(){
+            /*$("#nav ul li:first-child a").click(function(e){
+                e.preventDefault(); //링크를 눌렀을때 #으로 가는걸 막아준다
+                $("#photo img").attr("src","../images/photo1.jpg");
+            });
+            $("#nav ul li:nth-child(2) a").click(function(){
+                $("#photo img").attr("src","../images/photo2.jpg");
+                return false; // 링크를 눌렀을때 #으로 가는걸 막아준다
+            });
+            $("#nav ul li:nth-child(3) a").click(function(e){
+                e.preventDefault();
+                $("#photo img").attr("src","../images/photo3.jpg");
+            });
+            $("#nav ul li:last-child a").click(function(e){
+                e.preventDefault();
+                $("#photo img").attr("src","../images/photo4.jpg");
+            });*/
+            //
+            /*$("#nav ul li a").click(function(){
+                let i = $(this).index();
+                console.log("i:"+i); //a로 인덱스를 가져오면 순서가 첫번째이기 때문에 다 0이 나온다
+            });*/
+            //
+            /*$("#nav ul li").click(function(){
+                let i = $(this).index();//li를 눌러야 순서대로 인덱스가 나온다
+                console.log("i : "+i);
+            })*/
+            /*$("#nav ul li a").click(function(){
+                let i = $(this).parent().index(); // a의 부모인 li값을 가져온다
+                console.log("i:"+i);
+                $("#photo img").attr("src","../images/photo"+(i+1)+".jpg");
+                return false;
+            });*/
+            let sr = $("#photo img").attr("src");
+            /*let at = $("#photo img").attr("alt")
+            $("#nav ul li a").click(function(){
+                let i = $(this).parent().index(); // a의 부모인 li값을 가져온다
+                console.log("i:"+i);
+                $("#photo img").attr("src",sr.replace(sr.slice(-5,-4),i+1));
+                $("#photo img").attr("alt",at.replace(at.slice(-1),i+1));
+                return false;
+            });*/
+            //
+            $("#nav ul li a").click(function(){
+                let txt = $(this).text();
+                let i = $(this).parent().index(); // a의 부모인 li값을 가져온다
+                console.log("i:"+i);
+                $("#photo img").attr("src",sr.replace(sr.slice(-5,-4),i+1));
+                $("#photo img").attr("alt",txt);
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="nav">
+            <ul>
+                <li><a href="#">photo1</a></li>
+                <li><a href="#">photo2</a></li>
+                <li><a href="#">photo3</a></li>
+                <li><a href="#">photo4</a></li>
+                <!-- <li><a href="#">photo5</a></li> -->
+                <!-- <li><a href="#">photo6</a></li> -->
+            </ul>
+        </div>
+        <div id="photo"><img src="../images/photo1.jpg" alt="photo1"></div>
+    </div>
+</body>
+</html>

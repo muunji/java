@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="myselect" id="myselect" onchange="myfnc()">
+        <!-- onchange : 요소가 바뀌면 실행되는 method -->
+        <option value="딸기">딸기</option>
+        <option value="사과">사과</option>
+        <option value="바나나">바나나</option>
+        <option value="복숭아">복숭아</option>
+    </select>
+    <input type="text" value="Hello" id="a01">
+    <p id="ch">과일 선택</p>
+    <script>
+        function myfnc(){
+            let txt =document.getElementById("myselect").value;
+            console.log(txt);
+            document.getElementById("ch").innerHTML = txt;
+        }
+        // document.getElementById("a01").onchange = function(){
+        //     let x = document.getElementById("a01");
+        //     x.value = x.value.toUpperCase();
+        // }
+        //위아래가 같은것, 방식만 다를뿐
+        document.getElementById("a01").addEventListener("change",function(){
+            let x = document.getElementById("a01");
+            x.value = x.value.toUpperCase();
+        });
+    </script>
+</body>
+</html>

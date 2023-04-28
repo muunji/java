@@ -1,0 +1,21 @@
+swiperjs.com
+
+>>Demos
+>>open in new window
+>> 우클릭, 페이지 소스보기
+>> 가져오기
+>> css나 js는 링크를 들어가서 >> 우클릭 > 다른이름으로 저장
+
+github.com
+
+>>swiper 검색
+(>>least recently updated 순으로 변경)
+>> 게시물 하나 선택
+>>download zip >> 압축풀기
+** 다운을 잘 받아야한다 // 실행이 안될수도있음
+
+>> 본인 폴더에 맞게 위치등 수정해주면 됨
+
+(jquery)
+OwlCarousel
+https://owlcarousel2.github.io/OwlCarousel2/

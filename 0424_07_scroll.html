@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        section {
+            height: 100vh;
+            /* 현재 창의 높이를 100등분 해서 그만큼 100을 쓰고 있는것
+            >> 창의 높이를 줄이게 되면 새로고침 해줘야함 */
+        }
+        section:first-child {
+            background: #f00;
+        }
+        section:nth-child(2) {
+            background: #0f0;
+        }
+        section:nth-child(3) {
+            background: #00f;
+        }
+        section:nth-child(4) {
+            background: #f0f;
+        }
+    </style>
+</head>
+<body>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <script>
+       // let ht = window.innerHeight; window의 높이
+       let ht = window.pageYOffset; // 현재 스크롤 위치를 나타내는 값 반환
+       console.log("ht"+ht);
+        // document.getElementsByTagName("section").style.height = ht+"px";
+        window.addEventListener("wheel",function(event){
+            //마우스 휠을 위로올릴때 아래로 올릴때 설정가능 , 매개변수 필요
+            //console.log(event,deltaY);  아래로 내릴때 위로 올릴때 어떤 값이 나오는지 확인 >> 양의 값, 음의 값이 나온다
+            //아래스크롤 100 위스크롤 -100
+            //console.log(event,wheelDelta); 이것도 스크롤을 아래로,위로 하는지 알 수 있다
+            //아래스크롤 -120 위 스크롤 120
+            let delta = event.deltaY || event.wheelDelta; //값을 못가져올 경우를 가정해서 '또는' 활용
+            let isdown = delta<0;
+            //console.log("isdown:"+isdown);  false인지 true인지에 따라 값이 달라진다
+            //
+            //
+            let ht = window.pageYOffset;
+            console.log("ht"+ht);
+            let htTop = document.documentElement.scrollTop;
+            console.log("htTop:"+htTop);
+            //둘다 현재 스크롤 위치를 알려준다고 볼 수 있다
+            let scrTop = window.pageYOffset || document.documentElement.scrollTop;
+            //
+            //
+            let nextPage = isdown?Math.floor(scrTop/window.innerHeight)*window.innerHeight:Math.ceil(scrTop/window.innerHeight)*window.innerHeight;
+            // 삼항연산 : 조건? 참 : 거짓
+            // 스크롤 아래로 내릴땐 음, 위로올릴땐 양인데 음수일때가 참인걸로 설정
+            console.log("nextPage:"+nextPage);
+            //
+            //
+            window.scrollTo({//scrollTo : scroll을 지정된 위치로 이동시켜줌
+                top:nextPage,
+                behavior:"smooth",
+                //어떤 행동으로 이동시킬건지 , 기본값 : auto, smooth : 애니메이션이 지정된다
+            });
+        });
+    </script>
+</body>
+</html>
